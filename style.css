@@ -1,0 +1,275 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:
+    radial-gradient(circle at top,#5a1530,#12030a 70%);
+  font-family:'Poppins',sans-serif;
+  position:relative;
+}
+
+/* BACKGROUND GLOW */
+
+.background-glow{
+  position:absolute;
+  width:700px;
+  height:700px;
+  background:
+    radial-gradient(circle,
+    rgba(255,215,140,0.18),
+    transparent 70%);
+  filter:blur(40px);
+  animation:pulseGlow 6s ease-in-out infinite;
+}
+
+@keyframes pulseGlow{
+  0%,100%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.15);
+  }
+}
+
+/* PARTICLES */
+
+.particles{
+  position:absolute;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+.particle{
+  position:absolute;
+  border-radius:50%;
+  background:white;
+  opacity:0.7;
+  animation:float linear infinite;
+}
+
+@keyframes float{
+  0%{
+    transform:translateY(100vh) scale(0);
+    opacity:0;
+  }
+
+  20%{
+    opacity:1;
+  }
+
+  100%{
+    transform:translateY(-120vh) scale(1);
+    opacity:0;
+  }
+}
+
+/* CARD */
+
+.card{
+  width:430px;
+  height:600px;
+  perspective:1800px;
+  z-index:10;
+}
+
+.card-inner{
+  width:100%;
+  height:100%;
+  position:relative;
+  transform-style:preserve-3d;
+  transition:transform 1.5s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+.card.open .card-inner{
+  transform:rotateY(180deg);
+}
+
+.front,
+.inside{
+  position:absolute;
+  width:100%;
+  height:100%;
+  border-radius:30px;
+  overflow:hidden;
+  backface-visibility:hidden;
+  box-shadow:
+    0 25px 80px rgba(0,0,0,0.5);
+}
+
+/* FRONT */
+
+.front{
+  background:
+    linear-gradient(145deg,#7d183f,#2c0717);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.gold-frame{
+  position:absolute;
+  inset:18px;
+  border:1px solid rgba(255,215,140,0.5);
+  border-radius:24px;
+}
+
+.shine{
+  position:absolute;
+  width:180%;
+  height:60px;
+  background:
+    rgba(255,255,255,0.12);
+  transform:rotate(-35deg);
+  top:-100px;
+  left:-200px;
+  animation:shine 6s infinite;
+}
+
+@keyframes shine{
+  0%{
+    top:-100px;
+    left:-250px;
+  }
+
+  100%{
+    top:700px;
+    left:500px;
+  }
+}
+
+.front-content{
+  text-align:center;
+  padding:45px;
+  z-index:2;
+}
+
+.top-text{
+  letter-spacing:4px;
+  color:#f5d28b;
+  font-size:11px;
+  margin-bottom:20px;
+}
+
+.front h1{
+  font-family:'Cormorant Garamond',serif;
+  color:white;
+  font-size:62px;
+  line-height:1.05;
+  margin-bottom:25px;
+}
+
+.divider{
+  width:120px;
+  height:1px;
+  background:#d4af37;
+  margin:0 auto 25px;
+}
+
+.front p{
+  color:#f7e5ea;
+  line-height:1.8;
+  font-size:16px;
+  margin-bottom:35px;
+}
+
+.open-button{
+  padding:15px 35px;
+  border:none;
+  border-radius:50px;
+  background:
+    linear-gradient(145deg,#f5d28b,#c89b35);
+  color:#381707;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.4s;
+  font-size:15px;
+  box-shadow:
+    0 12px 25px rgba(0,0,0,0.3);
+}
+
+.open-button:hover{
+  transform:translateY(-4px) scale(1.04);
+}
+
+/* INSIDE */
+
+.inside{
+  background:
+    linear-gradient(145deg,#fffdf8,#fdeef3);
+  transform:rotateY(180deg);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:35px;
+}
+
+.inside-frame{
+  position:absolute;
+  inset:18px;
+  border:1px solid rgba(201,154,58,0.4);
+  border-radius:24px;
+}
+
+.inside-content{
+  text-align:center;
+  z-index:2;
+}
+
+.inside h2{
+  font-family:'Great Vibes',cursive;
+  font-size:58px;
+  color:#7d183f;
+  margin-bottom:20px;
+}
+
+.message{
+  font-size:15px;
+  line-height:1.95;
+  color:#5b4c53;
+  margin-bottom:35px;
+}
+
+.signature{
+  font-family:'Cormorant Garamond',serif;
+  font-size:34px;
+  color:#b8860b;
+  margin-bottom:10px;
+}
+
+.from{
+  font-family:'Great Vibes',cursive;
+  font-size:38px;
+  color:#7d183f;
+}
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+  .card{
+    width:92%;
+    height:580px;
+  }
+
+  .front h1{
+    font-size:50px;
+  }
+
+  .inside h2{
+    font-size:50px;
+  }
+
+  .message{
+    font-size:14px;
+  }
+}
