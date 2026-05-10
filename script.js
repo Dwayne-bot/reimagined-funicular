@@ -1,57 +1,108 @@
-const card = document.getElementById("card");
-const music = document.getElementById("bgMusic");
+// Floating Hearts
 
-// Open Card Animation
-card.addEventListener("click", () => {
+const heartsContainer = document.querySelector(".hearts");
 
-  card.classList.toggle("open");
+function createHeart(){
 
-  // Play Music on First Click
-  if (music.paused) {
-    music.play();
-  }
-});
+    const heart = document.createElement("div");
 
-/* PREMIUM FLOATING PARTICLES */
+    heart.classList.add("heart");
 
-const particles = document.querySelector(".particles");
+    const hearts = ["💖", "💕", "💗", "💞"];
 
-function createParticle(){
+    heart.innerHTML =
+        hearts[Math.floor(Math.random() * hearts.length)];
 
-  const particle = document.createElement("div");
+    heart.style.left = Math.random() * 100 + "vw";
 
-  particle.classList.add("particle");
+    heart.style.fontSize =
+        Math.random() * 20 + 15 + "px";
 
-  const size = Math.random() * 5 + 2;
+    const duration =
+        Math.random() * 5 + 5;
 
-  particle.style.width = size + "px";
-  particle.style.height = size + "px";
+    heart.style.animationDuration =
+        duration + "s";
 
-  particle.style.left =
-    Math.random() * window.innerWidth + "px";
+    heartsContainer.appendChild(heart);
 
-  particle.style.animationDuration =
-    (Math.random() * 6 + 4) + "s";
-
-  particle.style.opacity = Math.random();
-
-  particle.style.background =
-    Math.random() > 0.5
-      ? "#ffffff"
-      : "#f5d28b";
-
-  particles.appendChild(particle);
-
-  setTimeout(() => {
-    particle.remove();
-  }, 10000);
+    setTimeout(() => {
+        heart.remove();
+    }, duration * 1000);
 }
 
-setInterval(createParticle, 120);
+setInterval(createHeart, 300);
 
-/* EXTRA GLOW EFFECT */
 
-setInterval(() => {
-  document.body.style.filter =
-    "brightness(" + (1 + Math.random() * 0.03) + ")";
-}, 3000);
+// Popup
+
+const popup = document.getElementById("popup");
+const openBtn = document.getElementById("openBtn");
+const closeBtn = document.getElementById("closeBtn");
+
+openBtn.addEventListener("click", () => {
+    popup.classList.add("active");
+});
+
+closeBtn.addEventListener("click", () => {
+    popup.classList.remove("active");
+});
+
+
+// Sparkle Cursor Effect (works on phones too)
+
+document.addEventListener("touchmove", sparkleEffect);
+document.addEventListener("mousemove", sparkleEffect);
+
+function sparkleEffect(e){
+
+    const x = e.touches
+        ? e.touches[0].clientX
+        : e.clientX;
+
+    const y = e.touches
+        ? e.touches[0].clientY
+        : e.clientY;
+
+    const sparkle = document.createElement("div");
+
+    sparkle.style.position = "fixed";
+    sparkle.style.left = x + "px";
+    sparkle.style.top = y + "px";
+
+    sparkle.style.width = "8px";
+    sparkle.style.height = "8px";
+
+    sparkle.style.borderRadius = "50%";
+
+    sparkle.style.background = "white";
+
+    sparkle.style.pointerEvents = "none";
+
+    sparkle.style.boxShadow =
+        "0 0 15px white";
+
+    sparkle.style.zIndex = "999";
+
+    document.body.appendChild(sparkle);
+
+    sparkle.animate(
+        [
+            {
+                transform: "scale(1)",
+                opacity: 1
+            },
+            {
+                transform: "scale(0)",
+                opacity: 0
+            }
+        ],
+        {
+            duration: 600
+        }
+    );
+
+    setTimeout(() => {
+        sparkle.remove();
+    }, 600);
+}

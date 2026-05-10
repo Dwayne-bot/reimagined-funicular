@@ -2,104 +2,93 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+  />
   <title>Mother's Day Card</title>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-  <!-- Animated Background -->
-  <div class="background-glow"></div>
-  <div class="particles"></div>
+  <!-- Floating Hearts -->
+  <div class="hearts"></div>
 
-  <!-- Music -->
-  <audio id="bgMusic" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8e4cf6d.mp3?filename=romantic-piano-11774.mp3" type="audio/mp3">
-  </audio>
+  <!-- Main Card -->
+  <div class="card">
 
-  <!-- Card -->
-  <div class="card" id="card">
+    <!-- Sparkles -->
+    <div class="sparkle sparkle1"></div>
+    <div class="sparkle sparkle2"></div>
+    <div class="sparkle sparkle3"></div>
+    <div class="sparkle sparkle4"></div>
 
-    <div class="card-inner">
+    <!-- Flowers -->
+    <div class="flowers">
+      <div class="flower">🌸</div>
+      <div class="flower">🌷</div>
+      <div class="flower">🌹</div>
+      <div class="flower">💐</div>
+    </div>
 
-      <!-- FRONT -->
-      <div class="front">
+    <!-- Content -->
+    <div class="content">
 
-        <div class="gold-frame"></div>
+      <h1>Mom</h1>
 
-        <div class="shine"></div>
+      <p class="subtitle">
+        Happy Mother's Day ✨
+      </p>
 
-        <div class="front-content">
+      <div class="big-heart">💖</div>
 
-          <div class="top-text">
-            FOR THE MOST BEAUTIFUL MOM
-          </div>
+      <p class="message">
+        Thank you for every hug, every smile,
+        every sacrifice, and every moment of love.
+        You are the heart of our family and
+        the light in our lives forever.
+      </p>
 
-          <h1>Happy Mother's Day</h1>
+      <button class="btn" id="openBtn">
+        Open Special Message
+      </button>
 
-          <div class="divider"></div>
+    </div>
 
-          <p>
-            Celebrating your love, strength, elegance,
-            and beautiful heart today and always.
-          </p>
+    <!-- Popup -->
+    <div class="popup" id="popup">
 
-          <button class="open-button">
-            Open Your Card ✨
-          </button>
+      <div class="popup-box">
 
-        </div>
-      </div>
+        <h2>I Love You Mom 💕</h2>
 
-      <!-- INSIDE -->
-      <div class="inside">
+        <p>
+          You make life beautiful with your kindness,
+          warmth, strength, and endless love.
+          Today is all about celebrating YOU.
+          Thank you for being my greatest blessing.
+        </p>
 
-        <div class="inside-frame"></div>
-
-        <div class="inside-content">
-
-          <h2>Dear Michelle,</h2>
-
-          <p class="message">
-            Today is all about celebrating the incredible woman you are.
-            Your kindness, patience, and unconditional love make the world
-            brighter for everyone around you.
-            <br><br>
-            Thank you for every sacrifice, every encouraging word,
-            and every moment of love you give so effortlessly.
-            Your grace and strength inspire more than words can ever express.
-            <br><br>
-            You deserve happiness, peace, love, and endless appreciation —
-            not just today, but every single day.
-            <br><br>
-            May this Mother’s Day bring you beautiful memories,
-            heartfelt smiles, and all the love your heart can hold.
-          </p>
-
-          <div class="signature">
-            Forever Appreciated 💖
-          </div>
-
-          <div class="from">
-            — Dwayne
-          </div>
-
-        </div>
+        <button class="close-btn" id="closeBtn">
+          Close
+        </button>
 
       </div>
 
     </div>
+
   </div>
 
   <script src="script.js"></script>
+
 </body>
 </html>
